@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-04-30T04:06:35Z",
+  "phase": 3,
+  "benchmark": "monai_swin_unetr_synthetic_e2e",
+  "device": "cuda:0",
+  "torch_version": "2.10.0+cu130",
+  "monai_version": "1.5.2",
+  "cuda_version": "13.0",
+  "kernel_version": "0.1.0",
+  "dtype": "fp16",
+  "spatial_size": [
+    64,
+    64,
+    64
+  ],
+  "compile": false,
+  "synthetic": true,
+  "baseline": {
+    "mean_ms": 18.755193328857423,
+    "p50_ms": 18.92470359802246,
+    "p95_ms": 19.167327880859375,
+    "p99_ms": 19.167327880859375,
+    "peak_memory_bytes": 498688512
+  },
+  "patched": {
+    "mean_ms": 14.622598457336426,
+    "p50_ms": 14.780927658081055,
+    "p95_ms": 14.965344429016113,
+    "p99_ms": 14.965344429016113,
+    "peak_memory_bytes": 479517696
+  },
+  "speedup": 1.2826169974904562,
+  "max_abs_diff": 0.0,
+  "mean_abs_diff": 0.0,
+  "passes_tolerance": true
+}

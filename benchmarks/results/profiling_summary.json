@@ -1,0 +1,113 @@
+{
+  "timestamp": "2026-04-30T13:31:39Z",
+  "host": "spark-af94",
+  "device": "NVIDIA GB10",
+  "tools": {
+    "nsight_compute": "2025.3.1.0",
+    "nsight_systems": "2025.3.2"
+  },
+  "roofline": {
+    "status": "blocked",
+    "tool": "ncu --set basic",
+    "reason": "ERR_NVGPUCTRPERM: account does not have permission to access NVIDIA GPU performance counters",
+    "next_step": "Enable NVIDIA performance counters or run Nsight Compute under a privileged account to collect formal roofline metrics."
+  },
+  "nsight_systems": {
+    "micro_report_remote": "~/crumpet/benchmarks/results/profiles/crumpet_micro_nsys.nsys-rep",
+    "mask_no_cache_report_remote": "~/crumpet/benchmarks/results/profiles/crumpet_mask_nocache_nsys.nsys-rep",
+    "shift_partition_kernel_half_shifted": {
+      "instances": 20,
+      "avg_ns": 142331.2,
+      "median_ns": 140352.0,
+      "min_ns": 133536.0,
+      "max_ns": 184832.0
+    },
+    "unshift_unpartition_kernel_half_shifted": {
+      "instances": 20,
+      "avg_ns": 114497.6,
+      "median_ns": 113584.0,
+      "min_ns": 112960.0,
+      "max_ns": 121952.0
+    },
+    "attn_mask_kernel_half_cached_trace": {
+      "instances": 1,
+      "avg_ns": 883200.0
+    },
+    "attn_mask_kernel_half_no_cache": {
+      "instances": 5,
+      "avg_ns": 723136.0,
+      "median_ns": 729760.0,
+      "min_ns": 668000.0,
+      "max_ns": 754752.0
+    },
+    "attn_mask_memset_half_no_cache": {
+      "instances": 5,
+      "avg_ns": 3299404.8,
+      "median_ns": 3298944.0,
+      "min_ns": 3286080.0,
+      "max_ns": 3314336.0
+    }
+  },
+  "event_microbenchmarks": {
+    "shape": {
+      "D": 49,
+      "H": 49,
+      "W": 49,
+      "window_size": [
+        7,
+        7,
+        7
+      ],
+      "dtype": "float16"
+    },
+    "shifted_cases": [
+      {
+        "C": 48,
+        "partition_speedup": 2.72,
+        "unpartition_speedup": 2.69,
+        "estimated_effective_bandwidth_gbps": 166.0
+      },
+      {
+        "C": 96,
+        "partition_speedup": 3.56,
+        "unpartition_speedup": 3.84,
+        "estimated_effective_bandwidth_gbps": 198.0
+      },
+      {
+        "C": 192,
+        "partition_speedup": 4.04,
+        "unpartition_speedup": 4.03,
+        "estimated_effective_bandwidth_gbps": 214.0
+      },
+      {
+        "C": 384,
+        "partition_speedup": 4.16,
+        "unpartition_speedup": 4.07,
+        "estimated_effective_bandwidth_gbps": 219.0
+      }
+    ],
+    "zero_shift_cases_before_wrapper_routing": [
+      {
+        "C": 48,
+        "partition_speedup": 0.86,
+        "unpartition_speedup": 0.75
+      },
+      {
+        "C": 96,
+        "partition_speedup": 1.1,
+        "unpartition_speedup": 0.98
+      },
+      {
+        "C": 192,
+        "partition_speedup": 1.06,
+        "unpartition_speedup": 0.97
+      },
+      {
+        "C": 384,
+        "partition_speedup": 1.09,
+        "unpartition_speedup": 0.98
+      }
+    ]
+  },
+  "action_taken": "High-level fused_shift_partition_3d and fused_unshift_unpartition_3d now route zero-shift calls through the PyTorch view/permute reference path instead of launching custom CUDA kernels."
+}

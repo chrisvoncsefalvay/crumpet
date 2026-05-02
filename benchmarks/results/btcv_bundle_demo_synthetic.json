@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-04-30T04:09:04Z",
+  "device": "cuda:0",
+  "torch_version": "2.10.0+cu130",
+  "monai_version": "1.5.2",
+  "cuda_version": "13.0",
+  "kernel_version": "0.1.0",
+  "bundle": "swin_unetr_btcv_segmentation",
+  "bundle_dir": "bundles/swin_unetr_btcv_segmentation",
+  "checkpoint": null,
+  "image": null,
+  "dtype": "fp16",
+  "roi_size": [
+    64,
+    64,
+    64
+  ],
+  "sw_batch_size": 1,
+  "compile": false,
+  "baseline": {
+    "mean_ms": 18.602191925048828,
+    "p50_ms": 18.84761619567871,
+    "p95_ms": 18.84761619567871,
+    "p99_ms": 18.84761619567871,
+    "peak_memory_bytes": 482890240
+  },
+  "patched": {
+    "mean_ms": 15.028719902038574,
+    "p50_ms": 15.291007995605469,
+    "p95_ms": 15.291007995605469,
+    "p99_ms": 15.291007995605469,
+    "peak_memory_bytes": 464607232
+  },
+  "speedup": 1.2377762075747736,
+  "max_abs_diff": 0.0,
+  "mean_abs_diff": 0.0,
+  "baseline_dice": null,
+  "patched_dice": null,
+  "dice_delta": null,
+  "synthetic": true,
+  "label": null
+}

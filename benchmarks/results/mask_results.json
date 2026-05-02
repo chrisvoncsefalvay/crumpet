@@ -1,0 +1,125 @@
+{
+  "timestamp": "2026-04-30T13:28:19Z",
+  "phase": 1,
+  "benchmark": "compute_attn_mask_3d",
+  "device": "cuda:0",
+  "torch_version": "2.10.0+cu130",
+  "cuda_version": "13.0",
+  "dtype": "fp16",
+  "cases": [
+    {
+      "D": 14,
+      "H": 14,
+      "W": 14,
+      "window_size": [
+        7,
+        7,
+        7
+      ],
+      "shift_size": [
+        3,
+        3,
+        3
+      ],
+      "dtype": "float16",
+      "exact": true,
+      "reference": {
+        "mean_ms": 0.28333333134651184,
+        "p50_ms": 0.28460799157619476,
+        "p95_ms": 0.2935679852962494,
+        "iters": 12
+      },
+      "reference_kind": "monai_style_python_slices_partition_and_masked_fill",
+      "kernel": {
+        "mean_ms": 0.06806666714449723,
+        "p50_ms": 0.06785600259900093,
+        "p95_ms": 0.0692799985408783,
+        "iters": 12
+      },
+      "cached": {
+        "mean_ms": 0.008045333437621593,
+        "p50_ms": 0.00800000037997961,
+        "p95_ms": 0.008352000266313553,
+        "iters": 12
+      },
+      "speedup": 4.162585641882975
+    },
+    {
+      "D": 49,
+      "H": 49,
+      "W": 49,
+      "window_size": [
+        7,
+        7,
+        7
+      ],
+      "shift_size": [
+        3,
+        3,
+        3
+      ],
+      "dtype": "float16",
+      "exact": true,
+      "reference": {
+        "mean_ms": 9.760906537373861,
+        "p50_ms": 9.760383605957031,
+        "p95_ms": 9.778719902038574,
+        "iters": 12
+      },
+      "reference_kind": "monai_style_python_slices_partition_and_masked_fill",
+      "kernel": {
+        "mean_ms": 0.6310666551192602,
+        "p50_ms": 0.6298719942569733,
+        "p95_ms": 0.6526079773902893,
+        "iters": 12
+      },
+      "cached": {
+        "mean_ms": 0.00819200009573251,
+        "p50_ms": 0.008160000201314688,
+        "p95_ms": 0.009216000325977802,
+        "iters": 12
+      },
+      "speedup": 15.467314677764469
+    },
+    {
+      "D": 98,
+      "H": 98,
+      "W": 98,
+      "window_size": [
+        7,
+        7,
+        7
+      ],
+      "shift_size": [
+        3,
+        3,
+        3
+      ],
+      "dtype": "float16",
+      "exact": true,
+      "reference": {
+        "mean_ms": 88.16706085205078,
+        "p50_ms": 75.88336181640625,
+        "p95_ms": 112.90518188476562,
+        "iters": 3
+      },
+      "reference_kind": "monai_style_python_slices_partition_and_masked_fill",
+      "kernel": {
+        "mean_ms": 4.017279942830403,
+        "p50_ms": 4.017663955688477,
+        "p95_ms": 4.018303871154785,
+        "iters": 3
+      },
+      "cached": {
+        "mean_ms": 0.00810666692753633,
+        "p50_ms": 0.008128000423312187,
+        "p95_ms": 0.00848000030964613,
+        "iters": 3
+      },
+      "speedup": 21.946954682459108
+    }
+  ],
+  "min_speedup": 4.162585641882975,
+  "large_case_speedup": 21.946954682459108,
+  "halt_rule_triggered": false
+}

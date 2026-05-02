@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-04-30T19:26:12Z",
+  "device": "cuda",
+  "torch_version": "2.10.0+cu130",
+  "monai_version": "1.5.2",
+  "cuda_version": "13.0",
+  "kernel_version": "0.1.0",
+  "bundle": "swin_unetr_btcv_segmentation",
+  "bundle_dir": "bundles/swin_unetr_btcv_segmentation",
+  "checkpoint": {
+    "checkpoint": "bundles/swin_unetr_btcv_segmentation/models/model.pt",
+    "missing_keys": [],
+    "unexpected_keys": []
+  },
+  "image": "./data/btcv_raw/imagesTr/img0025.nii.gz",
+  "label": "./data/btcv_raw/labelsTr/label0025.nii.gz",
+  "dtype": "fp16",
+  "roi_size": [
+    96,
+    96,
+    96
+  ],
+  "sw_batch_size": 1,
+  "compile": true,
+  "baseline": {
+    "mean_ms": 2439.668176269531,
+    "p50_ms": 2439.943359375,
+    "p95_ms": 2455.599365234375,
+    "p99_ms": 2455.599365234375,
+    "peak_memory_bytes": 4325736448
+  },
+  "patched": {
+    "mean_ms": 1902.732843017578,
+    "p50_ms": 1902.17431640625,
+    "p95_ms": 1931.1507568359375,
+    "p99_ms": 1931.1507568359375,
+    "peak_memory_bytes": 5627599872
+  },
+  "speedup": 1.2821916567122569,
+  "max_abs_diff": 0.0703125,
+  "mean_abs_diff": 0.001397071871906519,
+  "baseline_dice": 0.16146313931004933,
+  "patched_dice": 0.1614381829993083,
+  "dice_delta": -2.4956310741036658e-05,
+  "synthetic": false
+}
