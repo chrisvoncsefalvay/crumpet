@@ -121,6 +121,8 @@ Measured on NVIDIA GB10, PyTorch 2.10.0+cu130, Triton 3.6, CUDA 13.0, fp16.
 
 `img0025`, MONAI Swin UNETR bundle and the MONAI `swin_unetr_btcv_segmentation` trained checkpoint, 96^3 ROI, 20 iterations:
 
+![](benchmarks/plots/e2e_btcv.png)
+
 | Path | Mean per inference | vs baseline |
 | --- | ---: | ---: |
 | Eager PyTorch | 5218 ms | 1.00x |
